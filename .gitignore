@@ -8,3 +8,5 @@ dist
 .idea
 yarn.lock
 yarn-error.log
+package-lock.json
+src/ui/archive.json

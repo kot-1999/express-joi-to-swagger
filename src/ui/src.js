@@ -2,6 +2,7 @@ import { forEach, filter, trim, every } from 'lodash'
 
 import { SwaggerUIBundle, SwaggerUIStandalonePreset } from 'swagger-ui-dist'
 import 'swagger-ui-dist/swagger-ui.css'
+import archive from './archive.json'
 
 const AdvancedFilterPlugin = (system) => ({
 	fn: {
@@ -39,8 +40,7 @@ const AdvancedFilterPlugin = (system) => ({
 })
 
 // eslint-disable-next-line no-undef
-const specName = APP_VERSION || 'data'
-
+// const specName = APP_VERSION || 'data'
 SwaggerUIBundle({
 	dom_id: '#swagger',
 	filter: true,
@@ -57,9 +57,6 @@ SwaggerUIBundle({
 		SwaggerUIBundle.presets.apis,
 		SwaggerUIStandalonePreset // // NOTE: turn on for topbar
 	],
-	urls: [
-		{ name: specName, url: 'data.json' }
-		// { name: 'local1', url: '/data.json' }
-	],
-	'urls.primaryName': specName // default spec
+	urls: archive.urls,
+	'urls.primaryName': archive.specName // default spec
 })
